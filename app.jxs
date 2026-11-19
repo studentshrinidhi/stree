@@ -1,0 +1,80 @@
+import './App.css';
+
+const services = [
+  { icon: '🚔', name: 'Police Stations', detail: 'Find nearby police stations' },
+  { icon: '🏥', name: 'Hospitals', detail: 'Find medical assistance' },
+  { icon: '🏨', name: 'Hotels', detail: 'Explore nearby hotels' },
+  { icon: '🍽️', name: 'Restaurants', detail: 'Find nearby restaurants' },
+  { icon: '🛍️', name: 'Shopping Malls', detail: 'Explore shopping places' },
+  { icon: '🏛️', name: 'Government Offices', detail: 'Find public buildings' },
+];
+
+function App() {
+  return (
+    <div className="app">
+      <header className="navbar">
+        <h2>🛡️ HerSafe</h2>
+        <span className="tagline">Your safety, our priority</span>
+      </header>
+
+      <main className="container">
+        <section className="welcome">
+          <h1>Travel with confidence.</h1>
+          <p>Find helpful places and understand your route before travelling.</p>
+        </section>
+
+        <section className="search-section">
+          <input
+            type="text"
+            placeholder="Enter your starting location"
+          />
+          <input
+            type="text"
+            placeholder="Where do you want to go?"
+          />
+          <button className="search-button">
+            Search Route
+          </button>
+        </section>
+
+        <section className="section">
+          <h2>Explore Nearby Services</h2>
+          <div className="service-grid">
+            {services.map((service) => (
+              <div className="service-card" key={service.name}>
+                <span className="service-icon">{service.icon}</span>
+                <h3>{service.name}</h3>
+                <p>{service.detail}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="safety-section">
+          <h2>Route Information</h2>
+          <p>
+            Explore road conditions, streetlight information
+            and available services along your journey.
+          </p>
+          <div className="map-placeholder">
+            🗺️ Your interactive map will appear here.
+          </div>
+        </section>
+
+        <section className="emergency-section">
+          <h2>Need Emergency Help?</h2>
+          <p>Access emergency assistance when you need it.</p>
+          <a href="tel:112" className="sos-button">
+            🚨 CALL EMERGENCY 112
+          </a>
+        </section>
+      </main>
+
+      <footer>
+        HerSafe © 2026 | Travel with confidence
+      </footer>
+    </div>
+  );
+}
+
+export default App;
